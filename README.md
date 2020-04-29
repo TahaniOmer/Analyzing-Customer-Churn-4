@@ -11,7 +11,8 @@ In the cox model, we had to throw out the coupon variable because it was violati
 
 
 #### What are pseudo-observations?
-Pseudo-observations are computed values which show how each observation contributes to the value of some summary statistic across the entire data set. The summary statistic selected could be the value of the survival curve at a particular time (e.g., 365 days), the Restricted Mean Survival Time, or some other measure.
+
+#### Pseudo-observations are computed values which show how each observation contributes to the value of some summary statistic across  the entire data set. The summary statistic selected could be the value of the survival curve at a particular time (e.g., 365 days),  the Restricted Mean Survival Time, or some other measure.
 
 
 
@@ -30,6 +31,11 @@ Since this process is based on various derivatives of Kaplan-Meier curves, right
 
 We used the geese function in R’s geepack package to create a Generalized Estimating Equations model. With the settings applied here, it’s basically a normal regression model, except that it’s relatively immune to certain statistical weirdness that can be introduced by the jackknife procedure. The result as fellow:
 
+
+![8](https://user-images.githubusercontent.com/58350018/80561986-e9042f80-89ab-11ea-9601-6e366770806a.jpg)
+
+ 
+ 
  
 The coefficients for each of these variables represent what each of the variables does to the value of the 365-day RMST for this group of customers. So, customers that signed up with a coupon provide over 30 days less revenue in their first year due to faster churn rates. Customers provide a fraction of a day of additional revenue for every year older they are… not much for a one-year difference, but that’ll add up when you’re comparing a 20-year-old to her dad. The results on the gender variable are not significant in this data set.
 
